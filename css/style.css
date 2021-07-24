@@ -1,0 +1,252 @@
+:root {
+  --clr-gradient-scissor-1: #ec9e0e;
+  --clr-gradient-scissor-2: #eca922;
+  --clr-gradient-rock-1: #dc2e4e;
+  --clr-gradient-rock-2: #dd405d;
+  --clr-gradient-paper-1: #4865f4;
+  --clr-gradient-paper-2: #5671f5;
+  --clr-gradient-bg-1: #1f3756;
+  --clr-gradient-bg-2: #141539;
+  --clr-neutral-100: white;
+  --clr-neutral-200: #606e85;
+  --clr-neutral-300: #3b4363;
+  --clr-primary-100: #2a46c0;
+  --fw-medium: 600;
+  --fw-bold: 700;
+  --ff-main: "Barlow Semi Condensed", sans-serif;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  background-image: radial-gradient(at top, var(--clr-gradient-bg-1), var(--clr-gradient-bg-2));
+  font-family: var(--ff-main);
+  padding: 2em 0;
+}
+
+.container {
+  max-width: 45rem;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 2.5px solid var(--clr-neutral-200);
+  border-radius: 1em;
+  padding: 1em;
+  margin-bottom: 5rem;
+}
+
+.score {
+  background-color: var(--clr-neutral-100);
+  padding: 1em 3em;
+  text-align: center;
+  border-radius: 0.5em;
+}
+.score__text {
+  color: var(--clr-primary-100);
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  font-weight: var(--fw-medium);
+}
+.score__number {
+  font-size: 4rem;
+  line-height: 0.8;
+  color: var(--clr-neutral-300);
+}
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  row-gap: 5em;
+  place-items: center;
+}
+.main .choice {
+  position: relative;
+}
+.main .choice::after {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 250px;
+  z-index: -2;
+  background-color: rgba(34, 34, 63, 0.76);
+}
+
+.choice {
+  border-radius: 50%;
+  padding: 1.5em;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-neutral-100);
+  box-shadow: inset 0 7px 0px 1px rgba(199, 199, 199, 0.705);
+  position: relative;
+}
+.choice::before {
+  position: absolute;
+  content: "";
+  top: -20px;
+  left: -20px;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  border-radius: 50%;
+  z-index: -1;
+}
+.choice-rock {
+  grid-column: 1/3;
+  grid-row: 2/3;
+}
+.choice-rock::before {
+  background-image: linear-gradient(to top, var(--clr-gradient-rock-1), var(--clr-gradient-rock-2));
+  box-shadow: 0px 7px #8c182d;
+}
+.choice-rock::after {
+  transform-origin: right;
+  transform: rotate(-310deg);
+  top: 50%;
+  right: 50%;
+}
+.choice-paper::before {
+  background-image: linear-gradient(to top, var(--clr-gradient-paper-1), var(--clr-gradient-paper-2));
+  box-shadow: 0px 7px #3050f3;
+}
+.choice-paper::after {
+  top: calc(50% - 7.5px);
+  left: 85%;
+}
+.choice-scissors::before {
+  background-image: linear-gradient(to top, var(--clr-gradient-scissor-1), var(--clr-gradient-scissor-2));
+  box-shadow: 0px 7px #bc7e0b;
+}
+.choice-scissors::after {
+  transform-origin: right;
+  transform: rotate(315deg);
+  top: 80%;
+  right: 50%;
+}
+
+.game {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.player,
+.computer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.player__text,
+.computer__text {
+  color: var(--clr-neutral-100);
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  margin-bottom: 3em;
+  letter-spacing: 1.5px;
+}
+
+.status {
+  text-align: center;
+  display: none;
+}
+.status__text {
+  text-transform: uppercase;
+  font-size: 2.15rem;
+  color: var(--clr-neutral-100);
+  margin-bottom: 0.25em;
+}
+.status__btn {
+  cursor: pointer;
+  background-color: var(--clr-neutral-100);
+  padding: 0.75em 3em;
+  border: 0;
+  outline: 0;
+  border-radius: 0.5em;
+  text-transform: uppercase;
+  color: var(--clr-primary-100);
+  font-size: 0.9rem;
+  letter-spacing: 1.5px;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.452);
+}
