@@ -25,7 +25,10 @@
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.527);
-	display: none;
+	transform: scaleY(0);
+	transform-origin: bottom;
+	transition: transform var(--transition-duration) ease-in-out;
+	display: flex;
 	justify-content: center;
 	align-items: center;
 

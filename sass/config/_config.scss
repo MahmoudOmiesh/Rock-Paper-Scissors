@@ -12,4 +12,6 @@
 	@each $type, $name in $font-families {
 		--ff-#{$type}: "#{$name}", sans-serif;
 	}
+
+	--transition-duration: 175ms;
 }

@@ -24,6 +24,7 @@ function switchDivs() {
 function showPlayerChoice() {
 	const playerChoiceDiv = gameDiv.querySelector(".player .choice");
 	const playerChoiceImg = document.createElement("img");
+	const computerCircle = document.querySelector(".circle");
 	playerChoiceImg.className = "choice__image";
 	if (playerChoice === "rock") {
 		playerChoiceImg.src = "images/icon-rock.svg";
@@ -39,6 +40,7 @@ function showPlayerChoice() {
 		playerChoiceDiv.className = "choice choice-scissors";
 	}
 	playerChoiceDiv.appendChild(playerChoiceImg);
+	computerCircle.style.animation = "1s ease-in-out grow";
 }
 
 function showComputerChoice() {

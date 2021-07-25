@@ -86,4 +86,12 @@
 			right: 50%;
 		}
 	}
+
+	&__image {
+		transition: transform var(--transition-duration) ease-in-out;
+	}
+
+	&:hover &__image {
+		transform: scale(1.1);
+	}
 }
