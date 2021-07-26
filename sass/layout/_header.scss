@@ -1,10 +1,18 @@
 .header {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	border: 2.5px solid var(--clr-neutral-200);
 	border-radius: 1em;
 	padding: 1em;
 	margin-bottom: 5rem;
+
+	&__logo {
+		@include mq(small) {
+			width: 130px;
+			height: 80px;
+		}
+	}
 }
 
 .score {
@@ -12,6 +20,13 @@
 	padding: 1em 3em;
 	text-align: center;
 	border-radius: 0.5em;
+
+	@include mq(small) {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		width: 20%;
+	}
 
 	&__text {
 		color: var(--clr-primary-100);
@@ -25,5 +40,9 @@
 		font-size: 4rem;
 		line-height: 0.8;
 		color: var(--clr-neutral-300);
+
+		@include mq(small) {
+			font-size: 2.75rem;
+		}
 	}
 }

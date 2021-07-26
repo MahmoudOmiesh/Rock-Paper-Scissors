@@ -2,6 +2,10 @@
 	display: none;
 	align-items: center;
 	justify-content: space-between;
+
+	@include mq(small) {
+		position: relative;
+	}
 }
 
 .player,
@@ -10,18 +14,36 @@
 	flex-direction: column;
 	align-items: center;
 
+	@include mq(small) {
+		flex-direction: column-reverse;
+		flex-basis: 10rem;
+	}
+
 	&__text {
 		color: var(--clr-neutral-100);
 		text-transform: uppercase;
 		font-size: 1.25rem;
 		margin-bottom: 3em;
 		letter-spacing: 1.5px;
+
+		@include mq(small) {
+			margin-top: 2.5em;
+			font-size: 0.9rem;
+		}
 	}
 }
 
 .status {
 	text-align: center;
-	display: none;
+	opacity: 0;
+	transition: opacity var(--transition-duration) ease-in-out;
+
+	@include mq(small) {
+		position: absolute;
+		top: 250px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
 
 	&__text {
 		text-transform: uppercase;
@@ -41,6 +63,11 @@
 		color: var(--clr-primary-100);
 		font-size: 0.9rem;
 		letter-spacing: 1.5px;
+		transition: transform var(--transition-duration) ease-in-out;
+
+		&:hover {
+			transform: scale(1.05);
+		}
 	}
 }
 
@@ -49,6 +76,16 @@
 	height: 150px;
 	border-radius: 50%;
 	background-color: rgba(0, 0, 0, 0.452);
+
+	@include mq(small) {
+		width: 100px;
+		height: 100px;
+	}
+}
+
+.choice.winner::before {
+	box-shadow: 0 0 0 70px rgba(255, 255, 255, 0.02),
+		0 0 0 40px rgba(255, 255, 255, 0.07), 0 0 0 15px rgba(255, 255, 255, 0.05);
 }
 
 @keyframes grow {

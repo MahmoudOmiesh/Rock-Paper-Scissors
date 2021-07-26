@@ -1,36 +1,36 @@
 $colors: (
-	"gradient": (
-		"scissor-1": hsl(39, 89%, 49%),
-		"scissor-2": hsl(40, 84%, 53%),
-		"rock-1": hsl(349, 71%, 52%),
-		"rock-2": hsl(349, 70%, 56%),
-		"paper-1": hsl(230, 89%, 62%),
-		"paper-2": hsl(230, 89%, 65%),
-		"bg-1": hsl(214, 47%, 23%),
-		"bg-2": hsl(237, 49%, 15%),
+	'gradient': (
+		'scissor-1': hsl(39, 89%, 49%),
+		'scissor-2': hsl(40, 84%, 53%),
+		'rock-1': hsl(349, 71%, 52%),
+		'rock-2': hsl(349, 70%, 56%),
+		'paper-1': hsl(230, 89%, 62%),
+		'paper-2': hsl(230, 89%, 65%),
+		'bg-1': hsl(214, 47%, 23%),
+		'bg-2': hsl(237, 49%, 15%),
 	),
-	"neutral": (
-		"100": hsl(0, 0%, 100%),
-		"200": hsl(217, 16%, 45%),
+	'neutral': (
+		'100': hsl(0, 0%, 100%),
+		'200': hsl(217, 16%, 45%),
 		// header outline
-		"300": hsl(229, 25%, 31%),
+		'300': hsl(229, 25%, 31%),
 		// dark text
 	),
-	"primary": (
-		"100": hsl(229, 64%, 46%),
+	'primary': (
+		'100': hsl(229, 64%, 46%),
 		// score
 	),
 );
 
 $font-weights: (
-	"medium": 600,
-	"bold": 700,
+	'medium': 600,
+	'bold': 700,
 );
 
 $breakpoints: (
-	"medium": 65em,
+	'small': 40em,
 );
 
 $font-families: (
-	"main": Barlow Semi Condensed,
+	'main': Barlow Semi Condensed,
 );

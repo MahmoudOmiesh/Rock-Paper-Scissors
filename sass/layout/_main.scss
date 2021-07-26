@@ -6,11 +6,15 @@
 	place-items: center;
 
 	& .choice {
-		@include pseudo(after, "") {
+		@include pseudo(after, '') {
 			height: 15px;
-			width: 250px;
+			width: 300px;
 			z-index: -2;
 			background-color: rgba(34, 34, 63, 0.76);
+
+			@include mq(small) {
+				width: 200px;
+			}
 		}
 	}
 }
@@ -26,11 +30,16 @@
 	background-color: var(--clr-neutral-100);
 	box-shadow: inset 0 7px 0px 1px rgba(199, 199, 199, 0.705);
 
-	@include pseudo(before, "") {
-		top: -20px;
-		left: -20px;
-		width: calc(100% + 40px);
-		height: calc(100% + 40px);
+	@include mq(small) {
+		width: 100px;
+		height: 100px;
+	}
+
+	@include pseudo(before, '') {
+		top: -15px;
+		left: -15px;
+		width: calc(100% + 30px);
+		height: calc(100% + 30px);
 		border-radius: 50%;
 		z-index: -1;
 	}
@@ -47,11 +56,12 @@
 			);
 			box-shadow: 0px 7px darken(hsl(349, 71%, 52%), 20%);
 		}
+
 		&::after {
-			transform-origin: right;
-			transform: rotate(-310deg);
+			transform-origin: left;
+			transform: translateY(-50%) rotate(-120deg);
 			top: 50%;
-			right: 50%;
+			left: 50%;
 		}
 	}
 
@@ -65,8 +75,13 @@
 			box-shadow: 0px 7px darken(hsl(230, 89%, 62%), 5%);
 		}
 		&::after {
-			top: calc(50% - 7.5px);
-			left: 85%;
+			transform: translateY(-50%);
+			top: 50%;
+			left: 68%;
+
+			@include mq(small) {
+				left: 37%;
+			}
 		}
 	}
 
@@ -80,10 +95,15 @@
 			box-shadow: 0px 7px darken(hsl(39, 89%, 49%), 10%);
 		}
 		&::after {
-			transform-origin: right;
-			transform: rotate(315deg);
-			top: 80%;
-			right: 50%;
+			transform-origin: left;
+			transform: translateY(-50%) rotate(120deg);
+			top: 30%;
+			left: 40%;
+
+			@include mq(small) {
+				top: 55%;
+				left: 60%;
+			}
 		}
 	}
 
